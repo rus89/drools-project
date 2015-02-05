@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>:: Dom :: Ekspertni sistem za izbor studentskog doma za
+	studente FON-a</title>
+<link rel="stylesheet" type="text/css" href="/DomJSF/css/stil.css" />
+<link rel="stylesheet" type="text/css" href="/DomJSF/css/stilSat.css" />
+<link rel="shortcut icon" type="image/x-icon"
+	href="/DomJSF/slike/dom.png" />
+<script type="text/javascript" src="/DomJSF/js/jquery-1.8.1.js"></script>
+<script type="text/javascript" src="/DomJSF/js/sat.js"></script>
+
+</head>
+<body>
+
+	<h:form>
+		<div class="welcome">
+
+			<p class="pitanja">Broj kreveta u sobi?</p>
+
+			<p:selectOneRadio id="orBrojKreveta"
+				value="#{kontroler.dom.brojKreveta}" layout="custom" required="true">
+				<f:selectItem itemLabel="Jedan" itemValue="0" />
+				<f:selectItem itemLabel="Dva" itemValue="1" />
+				<f:selectItem itemLabel="Tri" itemValue="2" />
+			</p:selectOneRadio>
+
+			<h:panelGrid columns="3" style="margin-left: 40%; margin-top: 30px;">
+				<p:radioButton id="jedanKrevet" for="orBrojKreveta" itemIndex="0"></p:radioButton>
+				<h:outputLabel for="jedanKrevet" value="Jedan"></h:outputLabel>
+				<p:spacer height="50"></p:spacer>
+
+				<p:radioButton id="dvaKreveta" for="orBrojKreveta" itemIndex="1"></p:radioButton>
+				<h:outputLabel for="dvaKreveta" value="Dva"></h:outputLabel>
+				<p:spacer height="50"></p:spacer>
+
+				<p:radioButton id="triKreveta" for="orBrojKreveta" itemIndex="2"></p:radioButton>
+				<h:outputLabel for="triKreveta" value="Tri"></h:outputLabel>
+				<p:spacer height="50"></p:spacer>
+			</h:panelGrid>
+
+			<p:commandButton ajax="false" value="Pocetna" styleClass="btnPocetna"
+				action="#{kontroler.pocetna()}"></p:commandButton>
+			<p:commandButton ajax="false" value="Dalje" styleClass="btnDalje"
+				action="#{kontroler.odgovorNaDevetoPitanje()}"></p:commandButton>
+		</div>
+	</h:form>
+
+</body>
+</html>
